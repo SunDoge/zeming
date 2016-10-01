@@ -30,7 +30,7 @@ class AppController extends Controller
     {
         $app = App::select('name', 'version', 'change_log', 'install_url')
             ->where('name', $name)
-            ->get();
+            ->first();
         if (!$app) {
             return response()->json(['error' => 'No such app'], 404);
         }
